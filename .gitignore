@@ -1,0 +1,14 @@
+# Credenciales (nunca subir)
+.env
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Editores / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
