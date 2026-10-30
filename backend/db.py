@@ -18,4 +18,5 @@ def get_conn(rol):
         database="torneo",
         user=user,
         password=password,
+        port=int(os.getenv("DB_PORT", "3306")),
     )
