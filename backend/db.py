@@ -2,7 +2,7 @@ import os
 import mysql.connector
 from dotenv import load_dotenv
 
-# Carga el .env si existe (desarrollo local)
+# Carga el .env (desarrollo local)
 load_dotenv()
 
 DB_USERS = {
