@@ -33,6 +33,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON torneo.planilla_partido TO 'torneo_plani
 GRANT SELECT, INSERT, UPDATE, DELETE ON torneo.gol              TO 'torneo_planillero'@'%';
 GRANT SELECT, INSERT, UPDATE, DELETE ON torneo.tarjeta          TO 'torneo_planillero'@'%';
 
+-- (puede crear sanciones: el backend genera la sanción automática al cargar una roja o la 3ª amarilla)
+GRANT INSERT ON torneo.sancion_jugador TO 'torneo_planillero'@'%';
+
 -- (puede actualizar el estado de un partido)
 GRANT UPDATE (estado) ON torneo.partido TO 'torneo_planillero'@'%';
 
