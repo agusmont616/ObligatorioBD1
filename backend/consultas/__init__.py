@@ -1,0 +1,7 @@
+from .usuarios import *
+from .torneos import *
+from .equipos import *
+from .jugadores import *
+from .canchas import *
+from .partidos import *
+from .sanciones import *
