@@ -48,6 +48,16 @@ ObligatorioBD1/
    - `02_usuarios.sql`
    - `03_datos.sql`
 
+   Desde la terminal:
+
+   ```bash
+   mysql -u root -p < db/01_tablas.sql
+   mysql -u root -p < db/02_usuarios.sql
+   mysql -u root -p < db/03_datos.sql
+   ```
+
+   El archivo `04_reportes.sql` tiene las consultas de los reportes. No hace falta ejecutarlo para instalar el sistema, sirve para probarlas directamente en MySQL.
+
 5. Crear y activar un entorno virtual de Python (Windows):
 
    ```powershell
