@@ -34,21 +34,34 @@ ObligatorioBD1/
    cd ObligatorioBD1
    ```
 
-2. Iniciar MySQL mediante Docker y configurar las variables de entorno utilizando `.env.example`.
+2. Iniciar la base de datos con Docker:
 
-3. Ejecutar los scripts SQL de la carpeta `db/` en orden:
+   ```bash
+   docker compose up -d
+   ```
+
+3. Crear el archivo `.env` a partir de `.env.example` y configurar las credenciales de MySQL.
+
+4. Ejecutar los scripts de la carpeta `db/` en el siguiente orden:
 
    - `01_tablas.sql`
    - `02_usuarios.sql`
    - `03_datos.sql`
 
-4. Instalar las dependencias del backend:
+5. Crear y activar un entorno virtual de Python (Windows):
+
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
+
+6. Instalar las dependencias:
 
    ```bash
    pip install -r backend/requirements.txt
    ```
 
-5. Iniciar el servidor Flask:
+7. Iniciar el backend:
 
    ```bash
    cd backend
