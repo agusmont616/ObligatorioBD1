@@ -17,7 +17,6 @@ const MENU_ADMIN = [
 
 const MENU_PLANILLERO = [
   ["/mis-partidos", "Mis partidos"],
-  ["/registrar-planilla", "Registrar planilla"],
   ["/reportes", "Reportes"],
 ];
 

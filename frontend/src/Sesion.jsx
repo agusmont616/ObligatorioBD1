@@ -27,6 +27,11 @@ export function SesionProvider({ children }) {
     });
   }, [usuario]);
 
+  // despues de crear o cambiar un torneo
+  function recargarTorneos() {
+    api("/torneos").then(setTorneos);
+  }
+
   async function entrar(correo, contrasena) {
     const u = await api("/login", "POST", { correo, contrasena });
     setUsuario(u);
@@ -44,7 +49,7 @@ export function SesionProvider({ children }) {
 
   return (
     <SesionContext.Provider
-      value={{ usuario, cargando, entrar, salir, torneos, torneo, idTorneo, setIdTorneo }}
+      value={{ usuario, cargando, entrar, salir, torneos, torneo, idTorneo, setIdTorneo, recargarTorneos }}
     >
       {children}
     </SesionContext.Provider>

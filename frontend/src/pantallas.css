@@ -1,0 +1,352 @@
+/* estilos de las pantallas (los generales estan en estilos.css) */
+
+.pagina-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.pagina-encabezado .titulo { margin-bottom: 2px; }
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.derecha { text-align: right; white-space: nowrap; }
+.centro { text-align: center; }
+.link, .gris a { color: var(--azul); }
+.texto-verde { color: var(--verde-oscuro); margin: 4px 0; }
+.texto-rojo { color: var(--rojo); margin: 4px 0; }
+.separado { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--borde); }
+
+/* grillas */
+.grilla-2, .grilla-4, .grilla-lado, .grilla-inicio, .grilla-planilla, .grilla-equipos {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+.grilla-2 { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+.grilla-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.grilla-lado { grid-template-columns: minmax(0, 1fr) 340px; }
+.grilla-lado-izq { grid-template-columns: 300px minmax(0, 1fr); }
+.grilla-inicio { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.9fr); }
+.grilla-planilla { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grilla-equipos { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+
+/* botones */
+a.boton, a.boton-chico { display: inline-block; text-decoration: none; }
+.boton-blanco { background: white; color: #1f2937; border: 1px solid var(--borde); }
+.boton-blanco:hover { background: var(--fondo); }
+.boton-amarillo { background: var(--amarillo); color: #1f2937; }
+.boton-amarillo:hover { background: #dca600; }
+.boton-peligro { background: white; color: var(--rojo); border: 1px solid var(--rojo); }
+.boton-peligro:hover { background: var(--rojo-claro); }
+.boton-bloque { display: block; width: 100%; text-align: center; margin-top: 8px; }
+.boton-chico {
+  padding: 4px 10px;
+  margin-left: 4px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: white;
+  color: #1f2937;
+  font-size: 12px;
+  cursor: pointer;
+}
+.boton-chico:hover { background: var(--fondo); }
+.boton-chico.peligro { color: var(--rojo); }
+.boton-chico:disabled, .boton-blanco:disabled { opacity: 0.5; cursor: default; }
+
+/* etiquetas */
+.estado-programado { background: var(--azul-claro); color: var(--azul); }
+.estado-jugado { background: var(--verde-claro); color: var(--verde-oscuro); }
+.estado-postergado, .estado-pendiente { background: var(--amarillo-claro); color: #8a6400; }
+.estado-cancelado { background: var(--rojo-claro); color: var(--rojo); }
+.tipo-grado { background: var(--azul-claro); color: var(--azul); }
+.tipo-posgrado { background: #ede9fe; color: #5b21b6; }
+.tipo-docente { background: var(--amarillo-claro); color: #8a6400; }
+.tipo-funcionario { background: #ffedd5; color: #9a3412; }
+.motivo-roja { background: var(--rojo-claro); color: var(--rojo); }
+.motivo-acumulacion { background: var(--amarillo-claro); color: #8a6400; }
+.motivo-disciplinaria { background: #eceff3; color: #374151; }
+.rol-administrador { background: var(--azul); color: white; }
+.rol-planillero { background: var(--amarillo); color: #1f2937; }
+
+.alerta-amarilla { background: var(--amarillo-claro); color: #6b4e00; }
+.alerta-verde { background: var(--verde-claro); color: var(--verde-oscuro); }
+
+/* numeros destacados */
+.stat { display: flex; align-items: center; gap: 14px; }
+.stat-valor { font-size: 24px; font-weight: 700; color: var(--azul); min-width: 40px; }
+.stat-rojo .stat-valor { color: var(--rojo); }
+.stat-amarillo .stat-valor { color: #b38600; }
+
+/* banner de inicio */
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(11, 42, 111, 0.92), rgba(19, 105, 42, 0.85)),
+    repeating-linear-gradient(90deg, #1f8a35 0 50px, #23963a 50px 100px);
+}
+.banner h2 { font-size: 20px; }
+.banner-datos { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; opacity: 0.9; }
+.banner .acciones { justify-content: flex-start; }
+.pasos { display: flex; gap: 24px; }
+.paso { text-align: center; opacity: 0.6; }
+.paso.hecho, .paso.actual { opacity: 1; }
+.paso-punto {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 4px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  font-weight: 700;
+}
+.paso.hecho .paso-punto { background: white; color: var(--verde-oscuro); }
+.paso.actual .paso-punto { background: var(--amarillo); color: #1f2937; border-color: var(--amarillo); }
+
+/* filas de partidos */
+.partido-fila {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.partido-dia {
+  min-width: 70px;
+  padding: 6px;
+  border-radius: 8px;
+  background: var(--azul-claro);
+  color: var(--azul);
+  text-align: center;
+}
+.partido-dia.oscuro { background: var(--azul); color: white; }
+.partido-equipos { flex: 1; min-width: 0; }
+.partido-vs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.partido-acciones { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: flex-end; }
+.partido-acciones select { padding: 4px 6px; font-size: 12px; }
+.partido-destacado { border: 1px solid var(--amarillo); border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+.marcador {
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--azul);
+  color: white;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tabla-compacta td, .tabla-compacta th { padding: 6px; }
+.tabla-scroll { overflow-x: auto; }
+.fila-elegida { background: var(--azul-claro); }
+
+/* formularios */
+.formulario { display: flex; flex-direction: column; gap: 10px; }
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--gris);
+}
+.fila { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+.fila > * { flex: 1; min-width: 120px; }
+.fila > .boton { flex: 0; min-width: auto; }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.filtros input { flex: 1; min-width: 200px; }
+.filtros .pestanas { margin-bottom: 0; flex: 1; }
+.agregar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+.agregar input, .agregar select { flex: 1; min-width: 140px; }
+.agregar .input-chico, .input-chico { flex: 0; width: 70px; min-width: 70px; }
+.formulario .check, .check {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  color: #1f2937;
+  font-size: 13px;
+}
+
+.segmentado { display: flex; flex-wrap: wrap; gap: 4px; }
+.segmentado button {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+.segmentado button.activo { background: var(--verde); border-color: var(--verde); color: white; font-weight: 600; }
+
+.paginado { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.pagina {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border: 1px solid var(--borde);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+.pagina.activa { background: var(--verde); border-color: var(--verde); color: white; }
+
+/* tarjetas de equipos */
+.equipo { padding: 0; overflow: hidden; }
+.equipo-cabeza { display: flex; align-items: center; gap: 10px; padding: 12px; color: white; }
+.equipo-escudo {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: white;
+  color: #1f2937;
+  font-weight: 800;
+  font-size: 12px;
+}
+.equipo-cuerpo { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.medidor-texto { display: flex; justify-content: space-between; margin-bottom: 3px; }
+
+/* barras (graficos de una sola serie) */
+.barras { display: flex; flex-direction: column; gap: 8px; margin: 8px 0; }
+.barra-fila {
+  display: grid;
+  grid-template-columns: minmax(90px, 170px) 1fr 52px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+.barra-fila:hover .barra { background: var(--verde-oscuro); }
+.barra-etiqueta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.barra-valor { text-align: right; font-weight: 600; }
+.barra-pista { height: 10px; border-radius: 4px; background: var(--fondo); overflow: hidden; }
+.barra { height: 100%; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--verde); }
+.barra-roja { background: var(--rojo); }
+.celda-barra { display: flex; align-items: center; gap: 8px; }
+.celda-barra .barra { height: 8px; max-width: 120px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chip-ok, .chip-mal { padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+.chip-ok { background: var(--verde-claro); color: var(--verde-oscuro); }
+.chip-mal { background: var(--rojo-claro); color: var(--rojo); }
+
+/* complejos */
+.item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 6px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+.item-activo { border-color: var(--verde); background: var(--verde-claro); }
+
+/* disponibilidad de canchas */
+.disponibilidad td, .disponibilidad th { padding: 4px; text-align: center; }
+.celda {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid var(--verde);
+  border-radius: 4px;
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-size: 11px;
+  cursor: pointer;
+}
+.celda-ocupada { border-color: var(--rojo); background: var(--rojo-claro); color: var(--rojo); cursor: default; }
+.celda-elegida { background: var(--amarillo); border-color: var(--amarillo); color: #1f2937; font-weight: 700; }
+
+/* torneos */
+.ciclo { display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.ciclo > div:not(.flecha) { flex: 1; min-width: 140px; }
+.flecha { font-size: 20px; color: var(--gris); padding-top: 2px; }
+
+/* configuracion */
+.turnos { display: flex; flex-wrap: wrap; gap: 8px; }
+.turno {
+  flex: 1;
+  min-width: 70px;
+  padding: 8px;
+  border: 1px solid var(--verde);
+  border-radius: 8px;
+  background: var(--verde-claro);
+  text-align: center;
+}
+
+/* planilla */
+.marcador-grande {
+  padding: 18px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(90deg, var(--azul), var(--verde-oscuro));
+}
+.marcador-grande .chico { opacity: 0.95; margin-top: 4px; }
+.marcador-equipos {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.marcador-equipos span:first-child { text-align: right; }
+.marcador-equipos span:last-child { text-align: left; }
+.marcador-numeros { padding: 4px 14px; border-radius: 8px; background: white; color: var(--azul); font-size: 22px; }
+.jugador-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--borde);
+  cursor: pointer;
+}
+.jugador-check.suspendido { background: var(--rojo-claro); cursor: default; }
+.evento { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--borde); }
+.evento-nombre { flex: 1; }
+.tarjeta-color { display: inline-block; width: 10px; height: 14px; border-radius: 2px; vertical-align: middle; }
+.tarjeta-color.amarilla { background: var(--amarillo); }
+.tarjeta-color.roja { background: var(--rojo); }
+.pie-acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid var(--borde);
+}
+
+@media (max-width: 1100px) {
+  .grilla-inicio, .grilla-planilla { grid-template-columns: 1fr 1fr; }
+  .grilla-lado, .grilla-lado-izq { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .grilla-inicio, .grilla-planilla, .grilla-2 { grid-template-columns: 1fr; }
+  .partido-fila { flex-wrap: wrap; }
+  .pasos { gap: 12px; }
+}

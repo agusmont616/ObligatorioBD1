@@ -5,3 +5,5 @@ from .jugadores import *
 from .canchas import *
 from .partidos import *
 from .sanciones import *
+from .reportes import *
+from .listados import *

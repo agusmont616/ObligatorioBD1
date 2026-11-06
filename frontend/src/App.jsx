@@ -2,8 +2,19 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { SesionProvider, useSesion } from "./Sesion.jsx";
 import Layout from "./componentes/Layout.jsx";
 import Login from "./paginas/Login.jsx";
+import Inicio from "./paginas/Inicio.jsx";
+import Torneos from "./paginas/Torneos.jsx";
+import Jugadores from "./paginas/Jugadores.jsx";
+import Equipos from "./paginas/Equipos.jsx";
+import EquipoDetalle from "./paginas/EquipoDetalle.jsx";
+import Complejos from "./paginas/Complejos.jsx";
+import Partidos from "./paginas/Partidos.jsx";
+import ProgramarPartido from "./paginas/ProgramarPartido.jsx";
+import Sanciones from "./paginas/Sanciones.jsx";
+import Configuracion from "./paginas/Configuracion.jsx";
+import MisPartidos from "./paginas/MisPartidos.jsx";
+import Planilla from "./paginas/Planilla.jsx";
 import Reportes from "./paginas/Reportes.jsx";
-import Pendiente from "./paginas/Pendiente.jsx";
 
 function Rutas() {
   const { usuario, cargando } = useSesion();
@@ -24,19 +35,22 @@ function Rutas() {
         <Route path="/" element={<Navigate to={esAdmin ? "/inicio" : "/mis-partidos"} replace />} />
         {esAdmin && (
           <>
-            <Route path="/inicio" element={<Pendiente titulo="Inicio" />} />
-            <Route path="/torneos" element={<Pendiente titulo="Torneos" />} />
-            <Route path="/jugadores" element={<Pendiente titulo="Jugadores" />} />
-            <Route path="/equipos" element={<Pendiente titulo="Equipos y planteles" />} />
-            <Route path="/complejos" element={<Pendiente titulo="Complejos y canchas" />} />
-            <Route path="/partidos" element={<Pendiente titulo="Partidos / Fixture" />} />
-            <Route path="/planillas" element={<Pendiente titulo="Planillas" />} />
-            <Route path="/sanciones" element={<Pendiente titulo="Sanciones" />} />
-            <Route path="/configuracion" element={<Pendiente titulo="Configuración" />} />
+            <Route path="/inicio" element={<Inicio />} />
+            <Route path="/torneos" element={<Torneos />} />
+            <Route path="/jugadores" element={<Jugadores />} />
+            <Route path="/equipos" element={<Equipos />} />
+            <Route path="/equipos/:id" element={<EquipoDetalle />} />
+            <Route path="/complejos" element={<Complejos />} />
+            <Route path="/partidos" element={<Partidos />} />
+            <Route path="/partidos/nuevo" element={<ProgramarPartido />} />
+            <Route path="/partidos/:id/editar" element={<ProgramarPartido />} />
+            <Route path="/planillas" element={<MisPartidos />} />
+            <Route path="/sanciones" element={<Sanciones />} />
+            <Route path="/configuracion" element={<Configuracion />} />
           </>
         )}
-        <Route path="/mis-partidos" element={<Pendiente titulo="Mis partidos" />} />
-        <Route path="/registrar-planilla" element={<Pendiente titulo="Registro de planilla" />} />
+        {!esAdmin && <Route path="/mis-partidos" element={<MisPartidos />} />}
+        <Route path="/planilla/:id" element={<Planilla />} />
         <Route path="/reportes" element={<Reportes />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
